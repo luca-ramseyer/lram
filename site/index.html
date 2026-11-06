@@ -127,27 +127,21 @@
           <article class="work-item">
             <div>
               <h3>Raml KQL</h3>
-              <p>Multi-tenant KQL querying, as close to a Microsoft Defender multi-tenant organization (MTO) as it gets, without needing one. Raml KQL is an open-source desktop app that runs any KQL query against as many Azure Log Analytics and Microsoft Sentinel workspaces as you choose, across Entra tenants and signed-in accounts, and merges the results with the tenant and workspace on every row. If your organization already has an MTO, use it; Raml KQL is for the teams that don&rsquo;t.</p>
-              <p>Privacy and least privilege are built in, not bolted on. There is no telemetry and no Raml KQL server: queries go straight from your machine to Microsoft with your own delegated permissions, and the app holds no secrets or service principals. Results stay in memory or in an encrypted session cache that is destroyed when the app closes. Extensions are sandboxed and must ask before they get any permission, including network access, and every permission can be revoked. Crash reports are never sent without your consent, and tenant names are aliased on screen so screen sharing stays safe.</p>
-              <p>Around that sits a VS Code-style editor with schema-aware IntelliSense, charts and exports, and shareable query packs.</p>
+              <p>Run one KQL query across many Log Analytics and Sentinel workspaces, tenants and accounts, with results merged in one table. A desktop app for teams without a Defender multi-tenant organization. No telemetry, no server, your own permissions.</p>
             </div>
             <p class="work-item__meta">Open source, MIT<br>No telemetry<br>macOS, Windows, Linux<br><a href="https://kql.raml.ch/">kql.raml.ch</a><br><a href="https://github.com/luca-ramseyer/raml-kql">GitHub repository</a></p>
           </article>
           <article class="work-item">
             <div>
               <h3>Raml Health</h3>
-              <p>Sleep, Recovery and Strain scores from the data your watch or ring already writes to Apple Health. Every morning Raml Health gives three clear answers, each scored 0&ndash;100 against your own baseline, with a breakdown that shows what pushed it up or down. It works with Apple Watch and with Fitbit, Garmin, Oura and other wearables that share with Apple Health.</p>
-              <p>A strength logger sits next to the scores: sets, reps, weight and RPE, personal records, a plate calculator, supersets, a rest timer in the Dynamic Island and an Apple Watch companion. Lifted weight counts towards Strain. Coaches can use the Raml Coach website to send training plans, and athletes choose exactly what they share.</p>
-              <p>Private by default: your health data stays on your iPhone and the scores are calculated there. No ads, no analytics, no tracking.</p>
+              <p>Daily Sleep, Recovery and Strain scores from your watch or ring, plus a strength logger with an Apple Watch app. Your health data stays on your iPhone.</p>
             </div>
             <p class="work-item__meta">iPhone, Apple Watch<br>English, German<br>No tracking<br><a href="https://apps.apple.com/app/id6791071978">App Store</a></p>
           </article>
           <article class="work-item">
             <div>
               <h3>CatKai Breeder</h3>
-              <p>A kitten colour calculator and cattery manager for cat breeders. Describe the sire and dam, and CatKai Breeder shows every colour, pattern, coat length, colourpoint and white spotting their kittens can have, with the chance of each. When a cat&rsquo;s look can hide a gene, it says so and counts every possible genotype instead of guessing.</p>
-              <p>Breeders make real decisions on its output, so the genetics engine is a pure Dart package tested against golden crosses, cross invariants and a brute-force enumeration of every offspring genotype. Around it, Breeder Mode keeps the cattery&rsquo;s records: cats with genes, pedigrees and health records, litter planning with stud comparison and inbreeding coefficient, kitten weights, and vaccine reminders.</p>
-              <p>Built in Flutter for iOS and Android. Your cats stay on your phone, with no account and no sign-in.</p>
+              <p>Shows which colours and patterns two cats can give their kittens, and keeps a cattery&rsquo;s cats, litters and vaccines in one place. For cat breeders.</p>
             </div>
             <p class="work-item__meta">iOS, Android<br>English, German<br>No account<br><a href="https://apps.apple.com/app/id6760860197">App Store</a></p>
           </article>
