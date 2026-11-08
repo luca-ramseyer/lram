@@ -1,4 +1,4 @@
-/* Generated from luca-ramseyer/brand tokens.json v1.1 — do not edit by hand. */
+/* Generated from luca-ramseyer/brand tokens.json v2.0 — do not edit by hand. */
 :root {
   --paper: #F4EFE4;
   --surface: #FBF8F1;
@@ -11,7 +11,7 @@
   --line: #DAD2C4;
   --good: #5B7A52;
   --serif: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
-  --sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --sans: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
   --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
   --chart-1: #211F1C;
   --chart-2: #C0473A;
@@ -19,17 +19,21 @@
   --chart-4: #5B7A52;
   --chart-5: #C9BFAE;
   --text-display: 56px;
-  --text-h1: 40px;
-  --text-h2: 30px;
-  --text-h3: 21px;
+  --text-h1: 44px;
+  --text-h2: 28px;
+  --text-h3: 19px;
   --text-body: 16px;
   --text-small: 13px;
-  --text-eyebrow: 12px;
+  --text-label: 12px;
   --tracking-wordmark: 0.24em;
-  --tracking-label: 0.14em;
-  --tracking-eyebrow: 0.22em;
-  --leading-body: 1.75;
-  --leading-tight: 1.15;
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-label: 0.08em;
+  --leading-body: 1.6;
+  --leading-tight: 1.1;
+  --weight-body: 400;
+  --weight-heading: 500;
+  --weight-strong: 600;
   --s1: 8px;
   --s2: 16px;
   --s3: 24px;
@@ -37,7 +41,8 @@
   --s5: 48px;
   --s6: 64px;
   --s7: 96px;
-  --radius-ui: 3px;
+  --radius-ui: 6px;
+  --radius-card: 8px;
   --motion-fast: 200ms;
   --motion-press: 140ms;
   --motion-enter: 500ms;
@@ -123,18 +128,21 @@ h2,
 h3 {
   margin: 0;
   color: var(--ink);
-  font-family: var(--serif);
+  font-family: var(--sans);
   line-height: var(--leading-tight);
-  font-weight: 500;
+  font-weight: var(--weight-heading);
+  letter-spacing: var(--tracking-heading);
+  text-wrap: balance;
 }
 
 h2 {
-  font-size: clamp(26px, 4vw, 34px);
-  letter-spacing: 0.01em;
+  font-size: clamp(24px, 3.4vw, var(--text-h2));
 }
 
 h3 {
   font-size: var(--text-h3);
+  font-weight: var(--weight-strong);
+  letter-spacing: -0.01em;
 }
 
 /* Gutters never go under the notch in landscape */
@@ -204,10 +212,9 @@ h3 {
 
 .site-nav a {
   border-bottom: 0;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
+  color: var(--body);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 @media (hover: hover) {
@@ -244,9 +251,9 @@ h3 {
 .eyebrow {
   margin: 0 0 var(--s2);
   color: var(--muted);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-label);
   font-weight: 500;
-  letter-spacing: var(--tracking-eyebrow);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
@@ -294,10 +301,8 @@ h3 {
   padding: 12px 22px;
   border: 1px solid var(--ink);
   border-radius: var(--radius-ui);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
   text-align: center;
   transition: color var(--motion-fast), border-color var(--motion-fast), background-color var(--motion-fast), transform var(--motion-press) var(--ease-out);
   touch-action: manipulation;
@@ -371,7 +376,7 @@ h3 {
 .work-item {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-ui);
+  border-radius: var(--radius-card);
 }
 
 .card {
@@ -454,7 +459,7 @@ h3 {
 }
 
 .experience-group__title {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .certifications p {
@@ -468,7 +473,7 @@ h3 {
 }
 
 .credentials-group__title {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: var(--s2);
 }
 
@@ -705,7 +710,7 @@ h3 {
   .contact-card {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: var(--radius-ui);
+    border-radius: var(--radius-card);
   }
 
   .contact-card {
@@ -713,7 +718,7 @@ h3 {
   }
 
   .experience-group__title {
-    font-size: 21px;
+    font-size: 19px;
   }
 
   .timeline li {
@@ -734,7 +739,7 @@ h3 {
   }
 
   .credentials-group__title {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .wm {
