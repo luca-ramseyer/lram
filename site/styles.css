@@ -274,6 +274,10 @@ h3 {
   color: var(--red);
 }
 
+.ft-tag .sep {
+  padding: 0 0.6em;
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
