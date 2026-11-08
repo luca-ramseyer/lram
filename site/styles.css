@@ -1,27 +1,39 @@
-/* Generated from tokens.json — do not edit by hand. */
+/* Generated from luca-ramseyer/brand tokens.json v2.0 — do not edit by hand. */
 :root {
   --paper: #F4EFE4;
   --surface: #FBF8F1;
   --ink: #211F1C;
   --body: #423D37;
-  --muted: #857E72;
+  --muted: #6F685D;
+  --stone: #857E72;
   --red: #C0473A;
   --red-deep: #A63B30;
   --line: #DAD2C4;
+  --good: #5B7A52;
   --serif: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
-  --sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --sans: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --chart-1: #211F1C;
+  --chart-2: #C0473A;
+  --chart-3: #857E72;
+  --chart-4: #5B7A52;
+  --chart-5: #C9BFAE;
   --text-display: 56px;
-  --text-h1: 40px;
-  --text-h2: 30px;
-  --text-h3: 21px;
+  --text-h1: 44px;
+  --text-h2: 28px;
+  --text-h3: 19px;
   --text-body: 16px;
   --text-small: 13px;
-  --text-eyebrow: 12px;
+  --text-label: 12px;
   --tracking-wordmark: 0.24em;
-  --tracking-label: 0.14em;
-  --tracking-eyebrow: 0.22em;
-  --leading-body: 1.75;
-  --leading-tight: 1.15;
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-label: 0.08em;
+  --leading-body: 1.6;
+  --leading-tight: 1.1;
+  --weight-body: 400;
+  --weight-heading: 500;
+  --weight-strong: 600;
   --s1: 8px;
   --s2: 16px;
   --s3: 24px;
@@ -29,9 +41,33 @@
   --s5: 48px;
   --s6: 64px;
   --s7: 96px;
-  --radius-ui: 3px;
+  --radius-ui: 6px;
+  --radius-card: 8px;
   --motion-fast: 200ms;
+  --motion-press: 140ms;
+  --motion-enter: 500ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --press-scale: 0.97;
   --maxw: 920px;
+}
+/* Dark theme: drop this block if a surface must stay light (print, the style guide). */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1C1A18;
+    --surface: #24221F;
+    --ink: #F4EFE4;
+    --body: #CFC8BB;
+    --muted: #A39B8E;
+    --red: #DB6B5D;
+    --red-deep: #E58478;
+    --line: #36332E;
+    --good: #8FAE85;
+    --chart-1: #F4EFE4;
+    --chart-2: #DB6B5D;
+    --chart-3: #A39B8E;
+    --chart-4: #8FAE85;
+    --chart-5: #5A554D;
+  }
 }
 
 * {
@@ -40,6 +76,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -66,15 +103,18 @@ a {
   transition: color var(--motion-fast), border-color var(--motion-fast), background-color var(--motion-fast);
 }
 
-a:hover {
-  color: var(--red);
-  border-color: var(--red);
+@media (hover: hover) {
+  a:hover {
+    color: var(--red);
+    border-color: var(--red);
+  }
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 1px solid var(--red);
+  outline: 2px solid var(--ink);
   outline-offset: 4px;
+  border-radius: var(--radius-ui);
 }
 
 p,
@@ -88,22 +128,26 @@ h2,
 h3 {
   margin: 0;
   color: var(--ink);
-  font-family: var(--serif);
+  font-family: var(--sans);
   line-height: var(--leading-tight);
-  font-weight: 500;
+  font-weight: var(--weight-heading);
+  letter-spacing: var(--tracking-heading);
+  text-wrap: balance;
 }
 
 h2 {
-  font-size: clamp(26px, 4vw, 34px);
-  letter-spacing: 0.01em;
+  font-size: clamp(24px, 3.4vw, var(--text-h2));
 }
 
 h3 {
   font-size: var(--text-h3);
+  font-weight: var(--weight-strong);
+  letter-spacing: -0.01em;
 }
 
+/* Gutters never go under the notch in landscape */
 .wrap {
-  width: min(calc(100% - (var(--s4) * 2)), var(--maxw));
+  width: min(calc(100% - (max(var(--s4), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)) * 2)), var(--maxw));
   margin: 0 auto;
 }
 
@@ -168,14 +212,15 @@ h3 {
 
 .site-nav a {
   border-bottom: 0;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
+  color: var(--body);
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.site-nav a:hover {
-  color: var(--red);
+@media (hover: hover) {
+  .site-nav a:hover {
+    color: var(--red);
+  }
 }
 
 .hero {
@@ -194,15 +239,21 @@ h3 {
 }
 
 .hero__mark {
+  display: block;
   margin-bottom: var(--s3);
+}
+
+.contact__mark {
+  display: block;
+  flex: none;
 }
 
 .eyebrow {
   margin: 0 0 var(--s2);
   color: var(--muted);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-label);
   font-weight: 500;
-  letter-spacing: var(--tracking-eyebrow);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
@@ -230,6 +281,10 @@ h3 {
   color: var(--red);
 }
 
+.ft-tag .sep {
+  padding: 0 0.6em;
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -246,11 +301,17 @@ h3 {
   padding: 12px 22px;
   border: 1px solid var(--ink);
   border-radius: var(--radius-ui);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
   text-align: center;
+  transition: color var(--motion-fast), border-color var(--motion-fast), background-color var(--motion-fast), transform var(--motion-press) var(--ease-out);
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(var(--press-scale));
 }
 
 .btn-primary {
@@ -258,10 +319,12 @@ h3 {
   color: var(--paper);
 }
 
-.btn-primary:hover {
-  color: var(--paper);
-  border-color: var(--body);
-  background: var(--body);
+@media (hover: hover) {
+  .btn-primary:hover {
+    color: var(--paper);
+    border-color: var(--body);
+    background: var(--body);
+  }
 }
 
 .btn-ghost {
@@ -269,10 +332,12 @@ h3 {
   color: var(--ink);
 }
 
-.btn-ghost:hover {
-  background: var(--ink);
-  color: var(--paper);
-  border-color: var(--ink);
+@media (hover: hover) {
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
 }
 
 .section {
@@ -311,7 +376,7 @@ h3 {
 .work-item {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-ui);
+  border-radius: var(--radius-card);
 }
 
 .card {
@@ -394,7 +459,7 @@ h3 {
 }
 
 .experience-group__title {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .certifications p {
@@ -408,7 +473,7 @@ h3 {
 }
 
 .credentials-group__title {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: var(--s2);
 }
 
@@ -493,7 +558,7 @@ h3 {
 .ft-meta {
   margin-top: var(--s4);
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   line-height: 1.9;
 }
@@ -502,14 +567,16 @@ h3 {
   color: var(--muted);
 }
 
-.ft-meta a:hover {
-  color: var(--red);
+@media (hover: hover) {
+  .ft-meta a:hover {
+    color: var(--red);
+  }
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(10px);
-  animation: hero-rise 520ms ease forwards;
+  animation: hero-rise var(--motion-enter) var(--ease-out) forwards;
 }
 
 @keyframes hero-rise {
@@ -520,8 +587,8 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
+  .btn:active {
+    transform: none;
   }
 
   .reveal {
@@ -550,7 +617,7 @@ h3 {
 
 @media (max-width: 640px) {
   .wrap {
-    width: min(calc(100% - (var(--s3) * 2)), var(--maxw));
+    width: min(calc(100% - (max(var(--s3), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)) * 2)), var(--maxw));
   }
 
   body {
@@ -582,22 +649,13 @@ h3 {
 
   .site-nav {
     width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    padding: 0 0 2px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .site-nav::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s1);
   }
 
   .site-nav a {
-    min-height: 38px;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -652,7 +710,7 @@ h3 {
   .contact-card {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: var(--radius-ui);
+    border-radius: var(--radius-card);
   }
 
   .contact-card {
@@ -660,7 +718,7 @@ h3 {
   }
 
   .experience-group__title {
-    font-size: 21px;
+    font-size: 19px;
   }
 
   .timeline li {
@@ -681,7 +739,7 @@ h3 {
   }
 
   .credentials-group__title {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .wm {
@@ -703,7 +761,7 @@ h3 {
 
 @media (max-width: 420px) {
   .wrap {
-    width: min(calc(100% - (var(--s2) * 2)), var(--maxw));
+    width: min(calc(100% - (max(var(--s2), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)) * 2)), var(--maxw));
   }
 
   .site-header__inner {
@@ -726,7 +784,7 @@ h3 {
 
   .hero__tagline,
   .ft-tag {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.8;
   }
 
@@ -739,17 +797,7 @@ h3 {
     padding: 12px 18px;
   }
 
-  .eyebrow,
   .site-nav a {
-    font-size: 11px;
-  }
-
-  .site-nav {
-    gap: 8px;
-  }
-
-  .site-nav a {
-    min-height: 40px;
     padding: 0 12px;
   }
 
