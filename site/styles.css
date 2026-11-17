@@ -521,9 +521,10 @@ h3 {
   flex: 0 0 56px;
   padding: 10px;
   object-fit: contain;
-  background: var(--surface);
+  /* a well, not raised: no clay inside clay */
+  background: var(--well);
   border-radius: var(--radius-ui);
-  box-shadow: var(--clay-body), var(--raise-1);
+  box-shadow: var(--press);
 }
 
 .experience-group__title {
