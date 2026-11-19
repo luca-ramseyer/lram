@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <title>Luca Ramseyer | Systems, Cybersecurity, Software</title>
-  <meta name="description" content="Portfolio and CV homepage for Luca Ramseyer covering systems, cybersecurity, and software, including the apps Lram Health and CatKai Breeder, and Raml KQL, a privacy-first, open-source app that brings multi-tenant KQL querying across Azure Log Analytics workspaces to teams without a Defender multi-tenant organization.">
+  <title>Luca Ramseyer – Cyber Defense Analyst | Portfolio &amp; CV</title>
+  <meta name="description" content="Luca Ramseyer is a Cyber Defense Analyst in Switzerland working across systems, cybersecurity and software. Portfolio, CV and projects like Raml KQL.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://lram.ch/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Luca Ramseyer">
   <meta property="og:locale" content="en_CH">
-  <meta property="og:title" content="Luca Ramseyer">
+  <meta property="og:title" content="Luca Ramseyer – Cyber Defense Analyst">
   <meta property="og:description" content="Systems, cybersecurity, and software.">
   <meta property="og:url" content="https://lram.ch/">
   <meta property="og:image" content="https://lram.ch/assets/banner-x-1500x500.png">
@@ -27,7 +27,7 @@
   <meta property="og:image:height" content="500">
   <meta property="og:image:alt" content="Luca Ramseyer brand banner">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Luca Ramseyer">
+  <meta name="twitter:title" content="Luca Ramseyer – Cyber Defense Analyst">
   <meta name="twitter:description" content="Systems, cybersecurity, and software.">
   <meta name="twitter:url" content="https://lram.ch/">
   <meta name="twitter:image" content="https://lram.ch/assets/banner-x-1500x500.png">
@@ -36,16 +36,41 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Luca Ramseyer",
-      "url": "https://lram.ch/",
-      "email": "mailto:luca@raml.ch",
-      "jobTitle": "Cyber Defense Analyst",
-      "description": "Security operations, systems, and software with a focus on efficient systems and useful automation.",
-      "knowsAbout": ["Security operations", "Incident response", "KQL", "Microsoft Sentinel", "Azure"],
-      "sameAs": [
-        "https://www.linkedin.com/in/luca-ramseyer/",
-        "https://github.com/luca-ramseyer"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://lram.ch/#website",
+          "url": "https://lram.ch/",
+          "name": "Luca Ramseyer",
+          "alternateName": ["lram.ch", "Luca Ramseyer Portfolio"],
+          "publisher": { "@id": "https://lram.ch/#person" }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://lram.ch/#profile",
+          "url": "https://lram.ch/",
+          "name": "Luca Ramseyer – Portfolio & CV",
+          "isPartOf": { "@id": "https://lram.ch/#website" },
+          "mainEntity": { "@id": "https://lram.ch/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://lram.ch/#person",
+          "name": "Luca Ramseyer",
+          "givenName": "Luca",
+          "familyName": "Ramseyer",
+          "url": "https://lram.ch/",
+          "email": "mailto:luca@raml.ch",
+          "jobTitle": "Cyber Defense Analyst",
+          "worksFor": { "@type": "Organization", "name": "isolutions AG" },
+          "nationality": { "@type": "Country", "name": "Switzerland" },
+          "description": "Security operations, systems, and software with a focus on efficient systems and useful automation.",
+          "knowsAbout": ["Security operations", "Incident response", "KQL", "Microsoft Sentinel", "Azure"],
+          "sameAs": [
+            "https://www.linkedin.com/in/luca-ramseyer/",
+            "https://github.com/luca-ramseyer"
+          ]
+        }
       ]
     }
   </script>
@@ -92,7 +117,7 @@
         <p class="eyebrow">Portfolio <span class="dot-divider" aria-hidden="true">&middot;</span> CV</p>
         <h1 class="wordmark">LUCA RAMSEYER</h1>
         <p class="hero__tagline">Systems <span class="sep">&middot;</span> Cybersecurity <span class="sep">&middot;</span> Software</p>
-        <p class="hero__positioning">I work in security operations and software, with a focus on efficient systems, useful automation, and work that respects people&rsquo;s time.</p>
+        <p class="hero__positioning">I&rsquo;m Luca Ramseyer, a Cyber Defense Analyst in Switzerland. I work in security operations and software, with a focus on efficient systems, useful automation, and work that respects people&rsquo;s time.</p>
         <div class="hero__actions">
           <a class="btn btn-primary" href="mailto:luca@raml.ch">Get in touch</a>
           <a class="btn" href="#work">View work</a>
